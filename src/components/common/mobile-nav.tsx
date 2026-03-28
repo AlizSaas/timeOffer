@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { SignInButton, SignUpButton, SignedOut } from "@clerk/nextjs"
 
 interface NavItem {
@@ -12,9 +12,9 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { href: "/", label: "Features" },
-  { href: "/", label: "How it works" },
-  { href: "/", label: "Pricing" },
+  { href: "#features", label: "Features" },
+  { href: "#how-it-works", label: "How it works" },
+  { href: "#pricing", label: "Pricing" },
 ]
 
 export function MobileNav() {
@@ -41,18 +41,24 @@ export function MobileNav() {
 
   return (
     <div className="md:hidden relative" ref={menuRef}>
-      <Button variant="ghost" size="sm" className="h-8 w-8 p-0" onClick={toggleMenu} aria-label="Toggle menu">
-        <Menu className="h-5 w-5" />
+      <Button 
+        variant="ghost" 
+        size="sm" 
+        className="h-9 w-9 p-0 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50" 
+        onClick={toggleMenu} 
+        aria-label="Toggle menu"
+      >
+        {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </Button>
 
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 z-50">
-          <div className="py-1">
+        <div className="absolute right-0 top-full mt-2 w-56 rounded-xl bg-white shadow-xl shadow-slate-200/50 ring-1 ring-slate-200/50 z-50 overflow-hidden">
+          <div className="py-2">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                className="block px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
@@ -60,16 +66,19 @@ export function MobileNav() {
             ))}
 
             <SignedOut>
-              <div className="px-4 py-2">
+              <div className="border-t border-slate-100 mt-2 pt-2 px-3 pb-2 space-y-2">
                 <SignInButton mode="modal">
-                  <Button variant="ghost" className="w-full justify-start text-sm text-gray-700 hover:bg-gray-100">
+                  <Button 
+                    variant="ghost" 
+                    className="w-full justify-center text-sm text-slate-600 hover:text-indigo-600 hover:bg-indigo-50"
+                  >
                     Sign In
                   </Button>
                 </SignInButton>
-              </div>
-              <div className="px-4 py-2">
                 <SignUpButton mode="modal">
-                  <Button className="w-full bg-black hover:bg-gray-800 text-white text-sm py-1">Sign Up</Button>
+                  <Button className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white shadow-md shadow-indigo-500/25">
+                    Get Started
+                  </Button>
                 </SignUpButton>
               </div>
             </SignedOut>
