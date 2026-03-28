@@ -38,7 +38,7 @@ const page = async () => {
       companyId: user.company.id, // Get the company ID from the user object 
     },
     orderBy: {
-      lastName: "asc",
+      firstName: "asc",
     },
     select: {
       firstName: true,
@@ -81,7 +81,7 @@ const page = async () => {
                     {employeeAllowances?.map((employee) => (
                       <TableRow key={employee.id}>
                         <TableCell>
-                          {employee.firstName} {employee.lastName}
+                          {employee.firstName}{employee.lastName ? ` ${employee.lastName}` : ""}
                         </TableCell>
                         <TableCell>{employee.email}</TableCell>
                         <TableCell>{employee.department}</TableCell>
@@ -90,7 +90,7 @@ const page = async () => {
                         <TableCell>
                           <AllowanceForm
                             employeeId={employee.id}
-                            employeeName={`${employee.firstName} ${employee.lastName}`}
+                            employeeName={`${employee.firstName}${employee.lastName ? ` ${employee.lastName}` : ""}`}
                             currentAllowance={employee.availableDays}
                           />
                         </TableCell>

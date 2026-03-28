@@ -11,8 +11,8 @@ export async function createEmployee(deparment:string | undefined,clerkId:string
         const clerk = await clerkClient(); // initialize Clerk client
         const user = await clerk.users.getUser(clerkId); // get user by clerkId
 
-        if(!user || !user.firstName || !user.lastName) {
-            throw new Error("User not found")
+        if(!user || !user.firstName) {
+            throw new Error("User not found or missing first name")
         }
         const code =  await prisma.code.findFirst({
             where: {
@@ -40,7 +40,7 @@ export async function createEmployee(deparment:string | undefined,clerkId:string
             data: {
                 clerkId: user.id,
                 firstName: user.firstName,
-                lastName: user.lastName,
+                lastName: user.lastName || null,
                 email: user.emailAddresses[0]?.emailAddress,
                 role: 'EMPLOYEE',
                 department: deparment || null,
@@ -79,8 +79,8 @@ export async function createAdmin(companyName:string,companyWebsite:string,compa
     try {
         const user = await (await clerkClient()).users.getUser(clerkId) // get user by clerkId
 
-        if(!user || !user.firstName || !user.lastName) {
-            throw new Error("User not found")
+        if(!user || !user.firstName) {
+            throw new Error("User not found or missing first name")
         }
         const company = await prisma.company.create({
             data: {
@@ -111,7 +111,7 @@ export async function createAdmin(companyName:string,companyWebsite:string,compa
             data: {
                 clerkId: user.id,
                 firstName: user.firstName,
-                lastName: user.lastName,
+                lastName: user.lastName || null,
                 email: user.emailAddresses[0]?.emailAddress,
                 role: 'ADMIN',
                 department: null,

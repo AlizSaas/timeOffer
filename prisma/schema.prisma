@@ -47,7 +47,7 @@ model User {
     clerkId String @unique
     email String @unique
     firstName String 
-    lastName String
+    lastName String?
     role UserRole @default(EMPLOYEE)
     department String?
     availableDays Int @default(25)

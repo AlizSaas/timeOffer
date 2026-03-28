@@ -21,7 +21,7 @@ import { createAdmin, createEmployee } from "@/lib/actions/onboarding"
 import { toast } from "sonner"
 const employeeSchema = z.object({
   firstName: z.string().min(1, "First name is required").max(55),
-  lastName: z.string().min(1, "Last name is required").max(55),
+  lastName: z.string().max(55).optional().or(z.literal("")),
   email: z.string().email("Invalid email address").max(100),
   department: z.string().optional(),
   invitationCode: z.string().length(6, "Invitation code must be 6 characters long"),
@@ -29,7 +29,7 @@ const employeeSchema = z.object({
 
 const adminSchema = z.object({
   firstName: z.string().min(1, "First name is required").max(55),
-  lastName: z.string().min(1, "Last name is required").max(55),
+  lastName: z.string().max(55).optional().or(z.literal("")),
   email: z.string().email("Invalid email address").max(100),
   companyName: z.string().min(1, "Company name is required").max(100),
   companyWebsite: z.string().url("Invalid website URL").optional().or(z.literal("")),

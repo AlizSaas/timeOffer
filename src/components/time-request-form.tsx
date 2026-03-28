@@ -33,6 +33,12 @@ const getDaysBetween = (startDate: Date, endDate: Date) => {
   return days
 }
 
+// Helper function to get today's date at midnight for consistent date comparisons
+const getTodayAtMidnight = (): Date => {
+  const today = new Date()
+  return new Date(today.getFullYear(), today.getMonth(), today.getDate())
+}
+
 const requestSchema = z
   .object({
     startDate: z.date({
@@ -42,7 +48,7 @@ const requestSchema = z
       .date({
         required_error: "End date is required",
       })
-      .refine((date) => date >= new Date(new Date().setHours(0, 0, 0, 0)), {
+      .refine((date) => date >= getTodayAtMidnight(), {
         message: "End date must be today or in the future",
       }),
     type: z.enum(["VACATION", "SICK", "PERSONAL", "OTHER"]),
