@@ -69,7 +69,7 @@ const page = async () => {
               {requests?.map((request) => (
                 <TableRow key={request.id}>
                   <TableCell>
-                    {request.employee.firstName} {request.employee.lastName}
+                    {request.employee.firstName}{request.employee.lastName ? ` ${request.employee.lastName}` : ""}
                   </TableCell>
                   <TableCell>
                     {formatDate(request.startDate) +
@@ -93,7 +93,7 @@ const page = async () => {
                   </TableCell>
                   <TableCell>
                     {request.manager
-                      ? `${request.manager.firstName} ${request.manager.lastName}`
+                      ? `${request.manager.firstName}${request.manager.lastName ? ` ${request.manager.lastName}` : ""}`
                       : "-"}
                   </TableCell>
                   <TableCell>{formatDate(request.createdAt)}</TableCell>

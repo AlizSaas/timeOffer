@@ -39,16 +39,21 @@ const Page = async () => {
       companyId: user.companyId,
     },
     orderBy: {
-      lastName: "asc", // Sort by last name in ascending order 
+      firstName: "asc", // Sort by first name in ascending order 
     },
   });
 
   return (
     <div className="space-y-8 mt-12">
       <div className="flex flex-col space-y-6">
-        <div className="flex flex-col space-y-2">
-          <h1 className="text-3xl font-bold">Employees</h1>
-          <p className="text-gray-500">Manage employee accounts</p>
+        <div className="flex items-center justify-between">
+          <div className="flex flex-col space-y-2">
+            <h1 className="text-3xl font-bold">Employees</h1>
+            <p className="text-gray-500">Manage employee accounts</p>
+          </div>
+          <Button asChild variant="outline">
+            <Link href="/admin">Back to Dashboard</Link>
+          </Button>
         </div>
         <Card>
           <CardContent>
@@ -72,7 +77,7 @@ const Page = async () => {
                     {users?.map((user) => (
                       <TableRow key={user.id}>
                         <TableCell>
-                          {user.firstName} {user.lastName}
+                          {user.firstName}{user.lastName ? ` ${user.lastName}` : ""}
                         </TableCell>
                         <TableCell>{user.email}</TableCell>
                         <TableCell className="capitalize">

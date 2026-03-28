@@ -154,7 +154,7 @@ const page = async ({
               <div className="space-y-1">
                 <dt className="text-sm font-medium text-gray-500">Name</dt>
                 <dd>
-                  {request.employee.firstName} {request.employee.lastName}
+                  {request.employee.firstName}{request.employee.lastName ? ` ${request.employee.lastName}` : ""}
                 </dd>
               </div>
               <div className="space-y-1">

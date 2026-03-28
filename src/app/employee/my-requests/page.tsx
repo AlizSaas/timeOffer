@@ -111,7 +111,7 @@ const page = async () => {
                       </TableCell>
                       <TableCell>
                         {request?.manager
-                          ? `${request?.manager?.firstName} ${request?.manager?.lastName}`
+                          ? `${request?.manager?.firstName}${request?.manager?.lastName ? ` ${request?.manager?.lastName}` : ""}`
                           : "N/A"}
                       </TableCell>
                       <TableCell>{formatDate(request.createdAt)}</TableCell>
