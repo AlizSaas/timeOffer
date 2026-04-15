@@ -56,13 +56,13 @@ const page = async () => {
       <div className="flex flex-col space-y-6">
         <div className="flex flex-col space-y-2">
           <h1 className="text-3xl font-bold">Holiday allowance management</h1>
-          <p className="text-gray-500">Manage employee holiday allowances</p>
+          <p className="text-muted-foreground">Manage employee holiday allowances</p>
         </div>
         <Card>
           <CardContent className="p-6">
             {!employeeAllowances || employeeAllowances?.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-6">
-                <p className="text-gray-500">No employees found.</p>
+                <p className="text-muted-foreground">No employees found.</p>
               </div>
             ) : (
               <div className="overflow-x-auto">

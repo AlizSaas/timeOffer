@@ -99,15 +99,15 @@ const hasDateOverlap = (
 const getRequestTypeColor = (type: TimeOffType) => {
   switch (type) {
     case "VACATION":
-      return "bg-blue-100 text-blue-800"
+      return "bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-300"
     case "SICK":
-      return "bg-red-100 text-red-800"
+      return "bg-red-100 dark:bg-red-950 text-red-800 dark:text-red-300"
     case "PERSONAL":
-      return "bg-purple-100 text-purple-800"
+      return "bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300"
     case "OTHER":
-      return "bg-gray-100 text-gray-800"
+      return "bg-gray-100 dark:bg-muted text-gray-800 dark:text-muted-foreground"
     default:
-      return "bg-gray-100 text-gray-800"
+      return "bg-gray-100 dark:bg-muted text-gray-800 dark:text-muted-foreground"
   }
 }
 
@@ -267,7 +267,7 @@ const TimeOffRequestForm = ({
     <div className="space-y-8 mt-12">
       <div className="flex flex-col space-y-2">
         <h1 className="text-3xl font-bold">New time off request</h1>
-        <p className="text-gray-500">Submit a new time off request to your manager</p>
+        <p className="text-muted-foreground">Submit a new time off request to your manager</p>
       </div>
       {existingRequests?.length > 0 && (
         <Card>
@@ -287,8 +287,8 @@ const TimeOffRequestForm = ({
                         {format(new Date(request.startDate), "MMM d, yyyy")} -{" "}
                         {format(new Date(request.endDate), "MMM d, yyyy")}
                       </div>
-                      <div className="text-sm text-gray-500">
-                        {request.reason && <div className="text-sm text-gray-500 mt-1">{request.reason}</div>}
+                      <div className="text-sm text-muted-foreground">
+                        {request.reason && <div className="text-sm text-muted-foreground mt-1">{request.reason}</div>}
                         <Badge
                           variant={
                             request.status === "PENDING"
@@ -384,11 +384,11 @@ const TimeOffRequestForm = ({
                 </div>
               )}
 
-              <div className="bg-gray-50 p-4 rounded-md space-y-4">
+              <div className="bg-gray-50 dark:bg-muted p-4 rounded-md space-y-4">
                 <div className="flex items-center justify-between">
                   <h3 className="text-sm font-medium">Day exclusion options</h3>
                   <div className="relative">
-                    <InfoIcon className="h-4 w-4 text-gray-500 cursor-help" />
+                    <InfoIcon className="h-4 w-4 text-muted-foreground cursor-help" />
                     <div className="absolute hidden group-hover:block w-64 p-2 bg-black text-white text-xs rounded shadow-lg -top-2 -right-2">
                       Excluded days will show in your time off date range but will not be deducted from your time off
                       allowance.
@@ -500,7 +500,7 @@ const TimeOffRequestForm = ({
                 />
               </div>
               {startDate && endDate && !form.formState.errors.startDate && !form.formState.errors.endDate && (
-                <div className="bg-blue-50 p-4 rounded-md space-y-2">
+                <div className="bg-blue-50 dark:bg-blue-950/50 p-4 rounded-md space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="font-medium">Duration Summary</span>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
@@ -509,21 +509,21 @@ const TimeOffRequestForm = ({
                         {totalDays} calendar day{totalDays !== 1 ? "s" : ""}
                       </div>
                       <div>
-                        <div className="font-medium text-blue-700">Working days (counted):</div>
-                        <div className="text-blue-700 font-bold">
+                        <div className="font-medium text-blue-700 dark:text-blue-300">Working days (counted):</div>
+                        <div className="text-blue-700 dark:text-blue-300 font-bold">
                           {workingDays} day{workingDays !== 1 ? "s" : ""}
                         </div>
                       </div>
                       {excludedDays?.length > 0 && (
                         <div className="col-span-2">
                           <div className="font-medium">Excluded days:</div>
-                          <div className="text-gray-600">
+                          <div className="text-muted-foreground">
                             {excludedDays.length} day
                             {excludedDays.length !== 1 ? "s" : ""}
                             {excludedDays?.length > 0 && (
                               <div className="mt-1 text-xs">
                                 {excludedDays?.map((day, i) => (
-                                  <span key={i} className="inline-block mr-2 mb-1 px-2 py-1 bg-gray-100 rounded">
+                                  <span key={i} className="inline-block mr-2 mb-1 px-2 py-1 bg-gray-100 dark:bg-muted rounded">
                                     {format(day, "EEE, MMM d")}
                                     {isWeekend(day)
                                       ? " (weekend)"

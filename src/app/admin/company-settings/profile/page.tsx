@@ -52,7 +52,7 @@ const page = async () => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold">Company Profile</h1>
-          <p className="text-gray-500">Update your company profile</p>
+          <p className="text-muted-foreground">Update your company profile</p>
         </div>
         <Button asChild variant={"outline"}>
           <Link href={`/admin/company-settings`}>Back to settings</Link>

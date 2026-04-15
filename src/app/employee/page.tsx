@@ -50,7 +50,7 @@ const page = async () => {
     <div className="space-y-8 mt-12">
       <div className="flex flex-col space-y-2">
         <h1 className="text-3xl font-bold">Employee Dashboard.</h1>
-        <p className="text-gray-500">Manage your time off requests.</p>
+        <p className="text-muted-foreground">Manage your time off requests.</p>
         <Button variant="outline" asChild>
           <Link href={"/employee"}>Back</Link>
         </Button>
@@ -80,23 +80,23 @@ const page = async () => {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-lg bg-gray-100 p-5 text-center">
+              <div className="rounded-lg bg-gray-100 dark:bg-muted p-5 text-center">
                 <div className="text-2xl font-bold">{totalRequests}</div>
-                <div className="text-sm text-gray-500">Total Requests</div>
+                <div className="text-sm text-muted-foreground">Total Requests</div>
               </div>
-              <div className="rounded-lg bg-gray-100 p-5 text-center">
+              <div className="rounded-lg bg-gray-100 dark:bg-muted p-5 text-center">
                 <div className="text-2xl font-bold">{approvedRequests}</div>
-                <div className="text-sm text-gray-500">Approved Requests</div>
+                <div className="text-sm text-muted-foreground">Approved Requests</div>
               </div>
-              <div className="rounded-lg bg-gray-100 p-5 text-center">
+              <div className="rounded-lg bg-gray-100 dark:bg-muted p-5 text-center">
                 <div className="text-2xl font-bold">{pendingRequests}</div>
-                <div className="text-sm text-gray-500">Pending Requests</div>
+                <div className="text-sm text-muted-foreground">Pending Requests</div>
               </div>
-              <div className="rounded-lg bg-gray-100 p-5 text-center">
+              <div className="rounded-lg bg-gray-100 dark:bg-muted p-5 text-center">
                 <div className="text-2xl font-bold">
                   {availableDays ? availableDays.availableDays : "N/A"}
                 </div>
-                <div className="text-sm text-gray-500">Days Available</div>
+                <div className="text-sm text-muted-foreground">Days Available</div>
               </div>
             </div>
           </CardContent>

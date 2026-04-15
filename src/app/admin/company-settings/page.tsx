@@ -70,7 +70,7 @@ const page = async () => {
       <div className="flex items-center justify-between">
         <div className="flex flex-col space-y-2">
           <h1 className="text-3xl font-bold">Company Settings</h1>
-          <p className="text-gray-500">Manage settings for {companyName}</p>
+          <p className="text-muted-foreground">Manage settings for {companyName}</p>
         </div>
         <Button asChild variant={"outline"}>
           <Link href={"/admin"}>Back to dashboard</Link>
@@ -87,7 +87,7 @@ const page = async () => {
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle>{item.title}</CardTitle>
-                    <item.icon className="h-5 w-5 text-blue-500" />
+                    <item.icon className="h-5 w-5 text-blue-500 dark:text-blue-400" />
                   </div>
                   <CardDescription>{item.description}</CardDescription>
                 </CardHeader>

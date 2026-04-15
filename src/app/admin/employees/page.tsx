@@ -49,7 +49,7 @@ const Page = async () => {
         <div className="flex items-center justify-between">
           <div className="flex flex-col space-y-2">
             <h1 className="text-3xl font-bold">Employees</h1>
-            <p className="text-gray-500">Manage employee accounts</p>
+            <p className="text-muted-foreground">Manage employee accounts</p>
           </div>
           <Button asChild variant="outline">
             <Link href="/admin">Back to Dashboard</Link>
@@ -59,7 +59,7 @@ const Page = async () => {
           <CardContent>
             {users?.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-6">
-                <p className="text-gray-500">No employees found.</p>
+                <p className="text-muted-foreground">No employees found.</p>
               </div>
             ) : (
               <div className="overflow-x-auto">

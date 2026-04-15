@@ -187,10 +187,10 @@ if (response?.success) {
                   htmlFor="employee"
                   className={cn(
                     "flex flex-col items-center justify-between rounded-md border-2 p-4 transition-all duration-200",
-                    "hover:border-gray-300 hover:bg-gray-50",
+                    "hover:border-gray-300 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-accent",
                     accountType === "employee"
-                      ? "border-blue-500 bg-blue-50 text-blue-700 font-medium shadow-sm"
-                      : "border-gray-200 bg-white",
+                      ? "border-blue-500 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium shadow-sm"
+                      : "border-gray-200 dark:border-border bg-white dark:bg-card",
                   )}
                 >
                   <span>Employee</span>
@@ -202,10 +202,10 @@ if (response?.success) {
                   htmlFor="admin"
                   className={cn(
                     "flex flex-col items-center justify-between rounded-md border-2 p-4 transition-all duration-200",
-                    "hover:border-gray-300 hover:bg-gray-50",
+                    "hover:border-gray-300 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-accent",
                     accountType === "admin"
-                      ? "border-blue-500 bg-blue-50 text-blue-700 font-medium shadow-sm"
-                      : "border-gray-200 bg-white",
+                      ? "border-blue-500 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium shadow-sm"
+                      : "border-gray-200 dark:border-border bg-white dark:bg-card",
                   )}
                 >
                   <span>Business Admin</span>
@@ -226,7 +226,7 @@ if (response?.success) {
                       <FormItem>
                         <FormLabel>First Name</FormLabel>
                         <FormControl>
-                          <Input {...field} disabled className="bg-gray-100" />
+                          <Input {...field} disabled className="bg-muted" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -239,7 +239,7 @@ if (response?.success) {
                       <FormItem>
                         <FormLabel>Last Name</FormLabel>
                         <FormControl>
-                          <Input {...field} disabled className="bg-gray-100" />
+                          <Input {...field} disabled className="bg-muted" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -253,7 +253,7 @@ if (response?.success) {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input {...field} disabled className="bg-gray-100" />
+                        <Input {...field} disabled className="bg-muted" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -266,7 +266,7 @@ if (response?.success) {
                     <FormItem>
                       <FormLabel>Department (optional)</FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder="e.g. Engineering, sales, etc." className="bg-gray-100" />
+                        <Input {...field} placeholder="e.g. Engineering, sales, etc." className="bg-muted" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -282,7 +282,7 @@ if (response?.success) {
                         <Input
                           {...field}
                           placeholder="Enter the 6-digit code"
-                          className="bg-gray-100"
+                          className="bg-muted"
                           maxLength={6}
                           pattern="[0-9]{6}"
                         />
@@ -317,7 +317,7 @@ if (response?.success) {
                         <FormItem>
                           <FormLabel>First Name</FormLabel>
                           <FormControl>
-                            <Input {...field} disabled className="bg-gray-100" />
+                            <Input {...field} disabled className="bg-muted" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -330,7 +330,7 @@ if (response?.success) {
                         <FormItem>
                           <FormLabel>Last Name</FormLabel>
                           <FormControl>
-                            <Input {...field} disabled className="bg-gray-100" />
+                            <Input {...field} disabled className="bg-muted" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -344,7 +344,7 @@ if (response?.success) {
                       <FormItem>
                         <FormLabel>Email</FormLabel>
                         <FormControl>
-                          <Input {...field} disabled className="bg-gray-100" />
+                          <Input {...field} disabled className="bg-muted" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -362,7 +362,7 @@ if (response?.success) {
                       <FormItem>
                         <FormLabel>Company Name</FormLabel>
                         <FormControl>
-                          <Input {...field} placeholder="Company Name" className="bg-gray-100" />
+                          <Input {...field} placeholder="Company Name" className="bg-muted" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -375,7 +375,7 @@ if (response?.success) {
                       <FormItem>
                         <FormLabel>Company Website (optional)</FormLabel>
                         <FormControl>
-                          <Input {...field} placeholder="Company Website" className="bg-gray-100" />
+                          <Input {...field} placeholder="Company Website" className="bg-muted" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -388,7 +388,7 @@ if (response?.success) {
                       <FormItem>
                         <FormLabel>Company Logo (optional)</FormLabel>
                         <FormControl>
-                          <Input {...field} placeholder="Company Logo URL" className="bg-gray-100" />
+                          <Input {...field} placeholder="Company Logo URL" className="bg-muted" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>

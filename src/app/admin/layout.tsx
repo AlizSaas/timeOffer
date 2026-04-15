@@ -1,4 +1,5 @@
 import MaxWidthWrapper from "@/components/common/MaxWidthWrapper"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function AdminLayout({
   children,
@@ -7,6 +8,9 @@ export default function AdminLayout({
 }) {
   return (
     <MaxWidthWrapper>
+      <div className="flex justify-end pt-4">
+        <ThemeToggle />
+      </div>
       {children}
     </MaxWidthWrapper>
   )
