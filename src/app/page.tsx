@@ -181,6 +181,8 @@ export default function Home() {
                 <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">Features</span>
               </div>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-slate-900 dark:text-foreground">
+                Everything you need to manage
+                <span className="block text-indigo-600">time off effortlessly</span>
               </h2>
               <p className="max-w-[700px] text-lg text-slate-600 dark:text-muted-foreground">
                 Discover the powerful features that make TimeOffer the best choice for managing time off requests.
