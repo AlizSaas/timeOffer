@@ -44,7 +44,7 @@ export function MobileNav() {
       <Button 
         variant="ghost" 
         size="sm" 
-        className="h-9 w-9 p-0 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50" 
+        className="h-9 w-9 p-0 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950" 
         onClick={toggleMenu} 
         aria-label="Toggle menu"
       >
@@ -52,13 +52,13 @@ export function MobileNav() {
       </Button>
 
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 w-56 rounded-xl bg-white shadow-xl shadow-slate-200/50 ring-1 ring-slate-200/50 z-50 overflow-hidden">
+        <div className="absolute right-0 top-full mt-2 w-56 rounded-xl bg-white dark:bg-card shadow-xl shadow-slate-200/50 dark:shadow-black/30 ring-1 ring-slate-200/50 dark:ring-border z-50 overflow-hidden">
           <div className="py-2">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="block px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
+                className="block px-4 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-950 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
@@ -66,11 +66,11 @@ export function MobileNav() {
             ))}
 
             <SignedOut>
-              <div className="border-t border-slate-100 mt-2 pt-2 px-3 pb-2 space-y-2">
+              <div className="border-t border-slate-100 dark:border-border mt-2 pt-2 px-3 pb-2 space-y-2">
                 <SignInButton mode="modal">
                   <Button 
                     variant="ghost" 
-                    className="w-full justify-center text-sm text-slate-600 hover:text-indigo-600 hover:bg-indigo-50"
+                    className="w-full justify-center text-sm text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950"
                   >
                     Sign In
                   </Button>

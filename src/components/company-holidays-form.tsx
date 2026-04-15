@@ -246,7 +246,7 @@ const CompanyHolidaysForm = ({
           <Button
             variant={"ghost"}
             asChild
-            className="w-fit p-0 h-auto text-sm text-gray-500 hover:text-gray-700"
+            className="w-fit p-0 h-auto text-sm text-muted-foreground hover:text-foreground"
           >
             <Link href="/admin/company-settings">
               <ArrowLeftIcon className="w-4 h-4 mr-2" />
@@ -254,7 +254,7 @@ const CompanyHolidaysForm = ({
             </Link>
           </Button>
           <h1 className="text-3xl font-bold">Company Holidays</h1>
-          <p className="text-gray-500">
+          <p className="text-muted-foreground">
             Manage your comapny-wide holidays and time off calendar.
           </p>
         </div>
@@ -361,7 +361,7 @@ const CompanyHolidaysForm = ({
             </Alert>
           ) : holidays?.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-6">
-              <p className="text-gray-500 mb-4">No company holidays found.</p>
+              <p className="text-muted-foreground mb-4">No company holidays found.</p>
               <Button onClick={() => setIsAddDialogOpen(true)}>
                 Add your first holiday.
               </Button>
@@ -393,7 +393,7 @@ const CompanyHolidaysForm = ({
                           {holiday.isRecurring ? (
                             <Badge
                               variant={"outline"}
-                              className="bg-green-50 text-green-700 border-green-200"
+                              className="bg-green-50 dark:bg-green-950 text-green-700 dark:text-green-300 border-green-200 dark:border-green-800"
                             ></Badge>
                           ) : null}
                         </TableCell>
@@ -516,13 +516,13 @@ const CompanyHolidaysForm = ({
             {selectedHoliday && (
               <div className="py-4">
                 <p className="font-medium">{selectedHoliday.name}</p>
-                <p className="text-gray-500">
+                <p className="text-muted-foreground">
                   {format(selectedHoliday.date, "MMMM d, yyyy")}
                 </p>
                 {selectedHoliday.isRecurring && (
                   <Badge
                     variant="outline"
-                    className="mt-2 bg-green-50 text-green-700 border-green-200"
+                    className="mt-2 bg-green-50 dark:bg-green-950 text-green-700 dark:text-green-300 border-green-200 dark:border-green-800"
                   >
                     Yearly Holiday
                   </Badge>

@@ -48,7 +48,7 @@ const page = async () => {
       <div className="flex items-center justify-between">
         <div className="flex flex-col space-y-2">
           <h1 className="text-3xl font-bold">My Time Off Requests</h1>
-          <p className="text-gray-500">
+          <p className="text-muted-foreground">
             View and manage your time off requests
           </p>
           <Button variant="outline" asChild>
@@ -65,7 +65,7 @@ const page = async () => {
         <CardContent className="p-6">
           {requests.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-6">
-              <p className="text-gray-500">
+              <p className="text-muted-foreground">
                 You don&apos;t have any time off requests yet.
               </p>
               <Button className="mt-4" asChild>

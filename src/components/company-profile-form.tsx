@@ -133,7 +133,7 @@ export default function CompanyProfileForm({
                         <Input {...field} placeholder="Enter logo link" />
                       </FormControl>
                       <FormMessage />
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-muted-foreground">
                         Enter a URL to your company logo.
                       </p>
                     </FormItem>

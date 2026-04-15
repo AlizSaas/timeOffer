@@ -101,14 +101,14 @@ export default async  function Admin() {
     <div className="space-y-8 mt-12">
     <div className="flex flex-col space-y-2">
       <h1 className="text-3xl font-bold">{companyName} Dashboard</h1>
-      <p className="text-gray-500">Manage your company and employees</p>
+      <p className="text-muted-foreground">Manage your company and employees</p>
     </div>
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
       {data?.map((item) => {
         return (
           <Card key={item.title}>
             <CardContent className="p-6">
-              <p className="text-sm text-gray-500">{item.title}</p>
+              <p className="text-sm text-muted-foreground">{item.title}</p>
               <h3 className="text-2xl font-semibold">{item.data}</h3>
             </CardContent>
           </Card>
@@ -165,7 +165,7 @@ export default async  function Admin() {
             <Button asChild>
               <Link href="/admin/invitation-codes">Invitation Codes</Link>
             </Button>
-            <p className="text-sm text-gray-500 mt-2">
+            <p className="text-sm text-muted-foreground mt-2">
               You have {activeInvitationCodesCount} active invitation code
               {activeInvitationCodesCount !== 1 ? "s" : ""}.
             </p>

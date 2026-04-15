@@ -50,7 +50,7 @@ const page = async () => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold">Working Days</h1>
-          <p className="text-gray-500">
+          <p className="text-muted-foreground">
             Configure your company&apos;s working days
           </p>
         </div>

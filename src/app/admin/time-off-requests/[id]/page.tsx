@@ -81,7 +81,7 @@ const page = async ({
           </div>
           <div className="px-6 pb-4">
             <dl className="grid grid-cols-2 gap-4">
-              <dt className="text-sm font-medium text-gray-500">Status</dt>
+              <dt className="text-sm font-medium text-muted-foreground">Status</dt>
               <dd>
                 <Badge
                   variant={
@@ -96,27 +96,27 @@ const page = async ({
                 </Badge>
               </dd>
               <div className="space-y-1">
-                <dt className="text-sm font-medium text-gray-500">Type</dt>
+                <dt className="text-sm font-medium text-muted-foreground">Type</dt>
                 <dd>{request.type}</dd>
               </div>
               <div className="space-y-1">
-                <dt className="text-sm font-medium text-gray-500">
+                <dt className="text-sm font-medium text-muted-foreground">
                   Start Date
                 </dt>
                 <dd>{formatDate(request.startDate)}</dd>
               </div>
               <div className="space-y-1">
-                <dt className="text-sm font-medium text-gray-500">End Date</dt>
+                <dt className="text-sm font-medium text-muted-foreground">End Date</dt>
                 <dd>{formatDate(request.endDate)}</dd>
               </div>
               <div className="space-y-1">
-                <dt className="text-sm font-medium text-gray-500">Duration</dt>
+                <dt className="text-sm font-medium text-muted-foreground">Duration</dt>
                 <dd>
                   {daysCount} day{daysCount !== 1 ? "s" : ""}
                 </dd>
               </div>
               <div className="space-y-1">
-                <dt className="text-sm font-medium text-gray-500">
+                <dt className="text-sm font-medium text-muted-foreground">
                   Working days
                 </dt>
                 <dd>
@@ -125,18 +125,18 @@ const page = async ({
                 </dd>
               </div>
               <div className="space-y-1">
-                <dt className="text-sm font-medium text-gray-500">Created</dt>
+                <dt className="text-sm font-medium text-muted-foreground">Created</dt>
                 <dd>{formatDate(request.createdAt)}</dd>
               </div>
               {request.reason && (
                 <div className="grid col-span-2">
-                  <dt className="text-sm font-medium text-gray-500">Reason</dt>
+                  <dt className="text-sm font-medium text-muted-foreground">Reason</dt>
                   <dd>{request.reason}</dd>
                 </div>
               )}
               {request.notes && (
                 <div className="grid col-span-2">
-                  <dt className="text-sm font-medium text-gray-500">Notes</dt>
+                  <dt className="text-sm font-medium text-muted-foreground">Notes</dt>
                   <dd>{request.notes}</dd>
                 </div>
               )}
@@ -152,21 +152,21 @@ const page = async ({
           <div className="px-6">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-1">
-                <dt className="text-sm font-medium text-gray-500">Name</dt>
+                <dt className="text-sm font-medium text-muted-foreground">Name</dt>
                 <dd>
                   {request.employee.firstName}{request.employee.lastName ? ` ${request.employee.lastName}` : ""}
                 </dd>
               </div>
               <div className="space-y-1">
-                <dt className="text-sm font-medium text-gray-500">Email</dt>
+                <dt className="text-sm font-medium text-muted-foreground">Email</dt>
                 <dd>{request.employee.email}</dd>
               </div>
               <div className="space-y-1">
-                <dt className="text-sm font-medium text-gray-500">Role</dt>
+                <dt className="text-sm font-medium text-muted-foreground">Role</dt>
                 <dd>{request.employee.role}</dd>
               </div>
               <div className="space-y-1">
-                <dt className="text-sm font-medium text-gray-500">
+                <dt className="text-sm font-medium text-muted-foreground">
                   Department
                 </dt>
                 <dd>

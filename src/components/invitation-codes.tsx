@@ -77,7 +77,7 @@ const InvitationCodes = ({ initialCodes }: InvitationCodesProps) => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold">Invitation Codes</h1>
-          <p className="text-gray-500">
+          <p className="text-muted-foreground">
             Generate and manage invitation codes for your new employees.
           </p>
         </div>
@@ -115,7 +115,7 @@ const InvitationCodes = ({ initialCodes }: InvitationCodesProps) => {
         <CardContent>
           {isLoading ? (
             <div className="flex justify-center py-8">
-              <RefreshCwIcon className="h-8 w-8 animate-spin text-gray-400" />
+              <RefreshCwIcon className="h-8 w-8 animate-spin text-muted-foreground" />
             </div>
           ) : codes?.length > 0 ? (
             <Table>
@@ -138,7 +138,7 @@ const InvitationCodes = ({ initialCodes }: InvitationCodesProps) => {
                       ) : (
                         <Badge
                           variant={"default"}
-                          className="bg-green-500 text-white"
+                          className="bg-green-500 dark:bg-green-600 text-white"
                         >
                           Active
                         </Badge>
@@ -165,7 +165,7 @@ const InvitationCodes = ({ initialCodes }: InvitationCodesProps) => {
             </Table>
           ) : (
             <div className="flex justify-center py-8">
-              <p className="text-gray-500">No active codes</p>
+              <p className="text-muted-foreground">No active codes</p>
             </div>
           )}
         </CardContent>
