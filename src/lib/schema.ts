@@ -4,7 +4,7 @@ export const employeeSchema = z.object({
     firstName: z.string().min(1,'first name is required').max(50,'first name must be less than 50 characters'),
     lastName: z.string().max(50,'last name must be less than 50 characters').optional().or(z.literal('')),
     email: z.string().email('invalid email address').max(50,'email must be less than 50 characters'),
-    deparment:z.string().optional(),
+    department:z.string().optional(),
     invitationCode: z.string().length(6,'invitation code must be 6 characters long')
 });
 
