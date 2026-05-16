@@ -43,7 +43,7 @@ export async function createEmployee(department:string | undefined,clerkId:strin
                 lastName: user.lastName || null,
                 email: user.emailAddresses[0]?.emailAddress,
                 role: 'EMPLOYEE',
-                department: deparment || null,
+                department: department || null,
                 companyId: code.companyId,
 
                
