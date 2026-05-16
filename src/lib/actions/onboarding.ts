@@ -4,7 +4,7 @@ import { clerkClient } from "@clerk/nextjs/server"
 import prisma from "../prisma"
 
 
-export async function createEmployee(deparment:string | undefined,clerkId:string,invitationCode:string) {
+export async function createEmployee(department:string | undefined,clerkId:string,invitationCode:string) {
    
 
     try {
@@ -43,7 +43,7 @@ export async function createEmployee(deparment:string | undefined,clerkId:string
                 lastName: user.lastName || null,
                 email: user.emailAddresses[0]?.emailAddress,
                 role: 'EMPLOYEE',
-                department: deparment || null,
+                department: department || null,
                 companyId: code.companyId,
 
                

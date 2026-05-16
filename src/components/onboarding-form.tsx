@@ -324,7 +324,7 @@ if (response?.success) {
                       )}
                     />
                     <FormField
-                      control={employeeForm.control}
+                      control={adminForm.control}
                       name="lastName"
                       render={({ field }) => (
                         <FormItem>
@@ -338,7 +338,7 @@ if (response?.success) {
                     />
                   </div>
                   <FormField
-                    control={employeeForm.control}
+                    control={adminForm.control}
                     name="email"
                     render={({ field }) => (
                       <FormItem>

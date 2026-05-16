@@ -15,6 +15,7 @@ export default async function page() {
         clerkId: userId,
       },
       select: {
+        id: true,
         companyId: true,
       },
     });
@@ -25,7 +26,7 @@ export default async function page() {
   
     const requests = await prisma.timeOffRequest.findMany({
       where: {
-        employeeId: userId,
+        employeeId: user.id,
       },
     });
 
