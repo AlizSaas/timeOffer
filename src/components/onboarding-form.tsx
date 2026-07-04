@@ -21,7 +21,6 @@ import { createAdmin, createEmployee } from "@/lib/actions/onboarding"
 import { toast } from "sonner"
 const employeeSchema = z.object({
   firstName: z.string().min(1, "First name is required").max(55),
-  lastName: z.string().max(55).optional().or(z.literal("")),
   email: z.string().email("Invalid email address").max(100),
   department: z.string().optional(),
   invitationCode: z.string().length(6, "Invitation code must be 6 characters long"),
@@ -29,7 +28,6 @@ const employeeSchema = z.object({
 
 const adminSchema = z.object({
   firstName: z.string().min(1, "First name is required").max(55),
-  lastName: z.string().max(55).optional().or(z.literal("")),
   email: z.string().email("Invalid email address").max(100),
   companyName: z.string().min(1, "Company name is required").max(100),
   companyWebsite: z.string().url("Invalid website URL").optional().or(z.literal("")),
@@ -42,10 +40,9 @@ type AdminFormValues = z.infer<typeof adminSchema>
 interface OnboardingFormProps {
   userEmail: string
   firstName: string
-  lastName: string
 }
 
-const OnboardingForm = ({ userEmail, firstName, lastName }: OnboardingFormProps) => {
+const OnboardingForm = ({ userEmail, firstName }: OnboardingFormProps) => {
   const router = useRouter()
   const { user, isLoaded } = useUser()
   const [accountType, setAccountType] = useState<"admin" | "employee">("employee")
@@ -56,7 +53,6 @@ const OnboardingForm = ({ userEmail, firstName, lastName }: OnboardingFormProps)
     resolver: zodResolver(employeeSchema),
     defaultValues: {
       firstName,
-      lastName,
       email: userEmail,
       department: "",
       invitationCode: "",
@@ -67,7 +63,6 @@ const OnboardingForm = ({ userEmail, firstName, lastName }: OnboardingFormProps)
     resolver: zodResolver(adminSchema),
     defaultValues: {
       firstName,
-      lastName,
       email: userEmail,
       companyName: "",
       companyWebsite: "",
@@ -218,8 +213,7 @@ if (response?.success) {
           {accountType === "employee" ? (
             <Form {...employeeForm}>
               <form onSubmit={employeeForm.handleSubmit(handleEmployeeSubmit)} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <FormField
+                <FormField
                     control={employeeForm.control}
                     name="firstName"
                     render={({ field }) => (
@@ -232,20 +226,6 @@ if (response?.success) {
                       </FormItem>
                     )}
                   />
-                  <FormField
-                    control={employeeForm.control}
-                    name="lastName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Last Name</FormLabel>
-                        <FormControl>
-                          <Input {...field} disabled className="bg-muted" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
                 <FormField
                   control={employeeForm.control}
                   name="email"
@@ -309,8 +289,7 @@ if (response?.success) {
               <form onSubmit={adminForm.handleSubmit(handleAdminSubmit)} className="space-y-4">
                 <div>
                   <h3 className="text-md font-medium mb-2">Personal Information</h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    <FormField
+                  <FormField
                       control={adminForm.control}
                       name="firstName"
                       render={({ field }) => (
@@ -323,20 +302,6 @@ if (response?.success) {
                         </FormItem>
                       )}
                     />
-                    <FormField
-                      control={adminForm.control}
-                      name="lastName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Last Name</FormLabel>
-                          <FormControl>
-                            <Input {...field} disabled className="bg-muted" />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
                   <FormField
                     control={adminForm.control}
                     name="email"
