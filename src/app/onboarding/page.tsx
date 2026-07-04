@@ -22,7 +22,6 @@ export default async function Onboarding() {
         </h1>
         <OnboardingForm 
         firstName={user.firstName || ''}
-        lastName={user.lastName || ''}
         userEmail={user.emailAddresses[0]?.emailAddress || ''}
         />
     </div>
